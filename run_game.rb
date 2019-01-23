@@ -12,7 +12,7 @@ def start_game
 end
 
 def loop_game
-  # system "clear"
+  system "clear"
   p "Welcome to SnowMan!! - Press the enter Key"
   gets.chomp
 
