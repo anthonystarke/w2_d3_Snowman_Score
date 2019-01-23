@@ -13,12 +13,13 @@ class HiddenWord
 
   def load_random_words
     random_words = []
+    line_counter = 0
     f = File.open("./random_words.txt", "r")
     f.each_line do |line|
       random_words << line.gsub("\n","")
     end
     f.close
-    return random_words[rand(100)]
+    return random_words[rand(line_counter)]
   end
 
   def initialize_stars_for_letters
