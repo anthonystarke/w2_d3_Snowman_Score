@@ -1,5 +1,3 @@
-
-
 class HiddenWord
 
   def initialize(secret_word)
@@ -17,6 +15,7 @@ class HiddenWord
     f = File.open("./random_words.txt", "r")
     f.each_line do |line|
       random_words << line.gsub("\n","")
+      line_counter += 1
     end
     f.close
     return random_words[rand(line_counter)]
@@ -37,6 +36,10 @@ class HiddenWord
     return @secret_word
   end
 
+  def return_guessed_letters
+    return @guessed_letters
+  end
+
   def replace_correct_letter(letter_to_replace, full_collection_of_guesses)
      @guessed_letters << letter_to_replace.downcase
      @converted_secret_word = ""
@@ -52,8 +55,10 @@ class HiddenWord
   def letter_check(letter_to_check,full_collection_of_guesses)
     if @secret_word.downcase.include? letter_to_check.downcase
       replace_correct_letter(letter_to_check,full_collection_of_guesses)
+      @guessed_letters << letter_to_check.downcase
       return true
     else
+      @guessed_letters << letter_to_check.downcase
       return false
     end
   end

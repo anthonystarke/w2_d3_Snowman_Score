@@ -29,6 +29,10 @@ def loop_game
     p "Your word --> #{@hidden_word.return_star_version()}"
     p "You have #{@player.return_lives()} chances"
 
+    if @game.return_guessed_letters.count() > 0
+      puts "Letters already guessed #{@game.return_guessed_letters.uniq}"
+    end
+
     key_input = gets.chomp
 
     if key_input == 'quit'

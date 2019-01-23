@@ -19,6 +19,10 @@ class Game
     return @hidden_word.return_star_version
   end
 
+  def return_guessed_letters
+    return @hidden_word.return_guessed_letters
+  end
+
   def game_over_win_or_lose
       if @player.player_lives_finished() && !@hidden_word.is_word_finished()
         return "Lose"
