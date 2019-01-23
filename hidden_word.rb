@@ -1,12 +1,24 @@
+
+
 class HiddenWord
 
   def initialize(secret_word)
-    @secret_word = secret_word
+    # @secret_word = secret_word
     @guessed_letters = []
     @star_version = ""
     @converted_secret_word = ""
+    @secret_word = load_random_words()
     initialize_stars_for_letters()
+  end
 
+  def load_random_words
+    random_words = []
+    f = File.open("./random_words.txt", "r")
+    f.each_line do |line|
+      random_words << line.gsub("\n","")
+    end
+    f.close
+    return random_words[rand(100)]
   end
 
   def initialize_stars_for_letters
@@ -24,7 +36,7 @@ class HiddenWord
     return @secret_word
   end
 
-  def replace_correct_letter(letter_to_replace,full_collection_of_guesses)
+  def replace_correct_letter(letter_to_replace, full_collection_of_guesses)
      @guessed_letters << letter_to_replace.downcase
      @converted_secret_word = ""
      @secret_word.each_char do |letter|

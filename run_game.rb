@@ -12,9 +12,10 @@ def start_game
 end
 
 def loop_game
-  system "clear"
+  # system "clear"
   p "Welcome to SnowMan!! - Press the enter Key"
   gets.chomp
+
   p "Press enter to play or 'quit' to leave"
   key_input = gets.chomp
 

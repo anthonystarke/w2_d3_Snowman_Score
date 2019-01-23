@@ -40,12 +40,10 @@ class Minitest::Test
     @player.reduce_lives()
 
     assert_equal("Lose",@game.game_over_win_or_lose())
-
   end
-  
+
   def test_game_over__false
     assert_equal("Not Finished",@game.game_over_win_or_lose())
   end
-
 
 end
