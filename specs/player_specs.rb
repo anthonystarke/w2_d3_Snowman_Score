@@ -24,4 +24,14 @@ class Minitest::Test
     assert_equal(5, @player.return_lives())
   end
 
+  def test_lives_finshed
+     @player.reduce_lives()
+     @player.reduce_lives()
+     @player.reduce_lives()
+     @player.reduce_lives()
+     @player.reduce_lives()
+     @player.reduce_lives()
+    assert_equal(true, @player.player_lives_finished())
+  end
+
 end

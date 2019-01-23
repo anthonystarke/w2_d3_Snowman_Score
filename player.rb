@@ -12,7 +12,14 @@ class Player
   end
 
   def reduce_lives
-    @lives-=1
+    @lives -= 1
+  end
+
+  def player_lives_finished
+    if @lives == 0
+      return true
+    end
+      return false
   end
 
 end

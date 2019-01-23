@@ -24,7 +24,7 @@ class HiddenWord
     return @secret_word
   end
 
-  def replace_correct_letter(letter_to_replace)
+  def replace_correct_letter(letter_to_replace,full_collection_of_guesses)
      @guessed_letters << letter_to_replace.downcase
      @converted_secret_word = ""
      @secret_word.each_char do |letter|
@@ -36,17 +36,25 @@ class HiddenWord
      end
   end
 
-  def letter_check(letter_to_check)
+  def letter_check(letter_to_check,full_collection_of_guesses)
     if @secret_word.downcase.include? letter_to_check.downcase
-      replace_correct_letter(letter_to_check)
+      replace_correct_letter(letter_to_check,full_collection_of_guesses)
       return true
     else
       return false
     end
   end
 
-def return_star_version
-  return @converted_secret_word
-end
+  def return_star_version
+    return @converted_secret_word
+  end
+
+  def is_word_finished
+    if !@converted_secret_word.include? "*"
+      return true
+    else
+      return false
+    end
+  end
 
 end
