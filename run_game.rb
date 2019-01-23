@@ -16,8 +16,8 @@ def loop_game
   p "Welcome to SnowMan!! - Press the enter Key"
   gets.chomp
   p "Press enter to play or 'quit' to leave"
-  gets.chomp
-  
+  key_input = gets.chomp
+
   if key_input == 'quit'
     p "Bye Bye, come back soon"
     return
