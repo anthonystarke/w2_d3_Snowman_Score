@@ -12,11 +12,17 @@ def start_game
 end
 
 def loop_game
-
+  system "clear"
   p "Welcome to SnowMan!! - Press the enter Key"
   gets.chomp
   p "Press enter to play or 'quit' to leave"
   gets.chomp
+  
+  if key_input == 'quit'
+    p "Bye Bye, come back soon"
+    return
+  end
+
   p "Secret Word Selected.. Choose a letter"
   while(@game.game_over_win_or_lose() == "Not Finished")
     p "Your word --> #{@hidden_word.return_star_version()}"
